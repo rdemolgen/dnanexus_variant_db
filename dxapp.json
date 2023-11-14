@@ -1,0 +1,78 @@
+{
+  "name": "exeter_variant_db",
+  "title": "Exeter variant database",
+  "summary": "Mongo variant database",
+  "dxapi": "1.0.0",
+  "version": "0.0.1",
+  "inputSpec": [
+    {
+      "name": "auto_update",
+      "label": "Automatically update database",
+      "class": "boolean",
+      "optional": true,
+      "default": false,
+      "help": ""
+    },
+    {
+      "name": "manual_update",
+      "label": "Manually update database",
+      "class": "file",
+      "optional": true,
+      "help": ""
+    },
+    {
+      "name": "query",
+      "label": "Pymongo query",
+      "class": "string",
+      "optional": true,
+      "help": ""
+    },
+    {
+      "name": "mins",
+      "label": "Extend app time (mins)",
+      "class": "int",
+      "optional": false,
+      "default": 0,
+      "help": "Set time (mins) to delay app to ssh into it and works with database manually."
+    }
+  ],
+  "outputSpec": [
+    {
+      "name": "result",
+      "label": "query_result",
+      "class": "file",
+      "patterns": [
+        "*"
+      ],
+      "help": ""
+    }
+  ],
+  "runSpec": {
+    "timeoutPolicy": {
+      "*": {
+        "hours": 1
+      }
+    },
+    "interpreter": "python3",
+    "file": "src/exeter_variant_db.py",
+    "distribution": "Ubuntu",
+    "release": "20.04",
+    "version": "0"
+  },
+  "access": {
+    "project": "CONTRIBUTE",
+    "allProjects": "CONTRIBUTE",
+    "network": [
+      "*"
+    ]
+  },
+  "regionalOptions": {
+    "aws:eu-central-1": {
+      "systemRequirements": {
+        "*": {
+          "instanceType": "mem1_ssd1_v2_x2"
+        }
+      }
+    }
+  }
+}

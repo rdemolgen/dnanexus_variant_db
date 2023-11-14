@@ -1,0 +1,17 @@
+{
+    "name": "python-mongodb",
+    "title": "Python & Mongodb",
+    "description": "Libraries to connect to dockerised Mongodb using Python scripts",
+    "version": "0.0.1",
+    "distribution": "Ubuntu",
+    "instanceType": "mem1_ssd1_v2_x2",
+    "release": "20.04",
+    "excludeResource": [
+      "/src/my.ccp",
+      "/scripts"
+    ],
+  
+    "execDepends": [
+      {"name": "pymongo","package_manager": "pip"}
+    ]
+  }
